@@ -1,8 +1,6 @@
 <template>
   <div>
-    <pre>
-        {{ $route }}
-    </pre>
+    <pre></pre>
     Usuário
   </div>
 </template>
