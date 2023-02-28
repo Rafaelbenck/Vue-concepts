@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from "vue-router";
+import { createRouter, createWebhHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 
 const routes = [
@@ -22,10 +22,15 @@ const routes = [
     name: "service",
     component: () => import("../views/ServicesView.vue"),
   },
+  {
+    path: "/users/:id",
+    name: "users-edit",
+    component: () => import("../views/UsersEdit.vue"),
+  },
 ];
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes,
 });
 
