@@ -2,12 +2,17 @@
   <div class="card">{{ product.name }} - {{ product.price }}</div>
   <br />
   <button @click="addProduct()">adicionar</button>
-  <button @click="removeProduct()">remover</button>
+  <button v-if="InCart" @click="removeProduct()">remover</button>
 </template>
 
 <script>
 export default {
   name: "appProduct",
+  data() {
+    return {
+      InCart: false,
+    };
+  },
   props: {
     product: Object,
   },
