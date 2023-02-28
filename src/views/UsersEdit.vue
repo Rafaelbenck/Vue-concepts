@@ -2,7 +2,7 @@
   <div>
     <pre>
 
-      <!-- Aqui você consegue todas as informações da rota como objeto -->
+      <!-- Here you get all the route information as an object -->
       {{ $route }}
     </pre>
     Usuário <br />
@@ -15,13 +15,13 @@
 export default {
   created() {
     // console.log{this.$route}
-    //em $route temos os dados da rota atual, para vermos as funcionalidade de schema de roteamento do vue podemos dar um log em '$router'
+    //in $route we have the current route data, to see the vue routing schema functionality we can log in '$router'
   },
 
   methods: {
     login() {
       //login ajax
-      this.$router.push("/about"); //você pode usar um objeto aqui
+      this.$router.push("/about"); //you can use a object here
       console.log("chegou");
     },
   },
