@@ -5,4 +5,6 @@ import App from "./App.vue";
 
 import router from "./router/index";
 
-window.app = createApp(App).use(router).use(router).mount("#app");
+import store from './store'
+
+window.app = createApp(App).use(store).use(router).use(router).mount("#app");

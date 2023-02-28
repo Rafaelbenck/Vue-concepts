@@ -1,11 +1,16 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-    <router-link :to="dinamicRoute">Services </router-link>
-    <router-link to="/users/10"> usuario 10</router-link>
-  </nav>
-  <router-view />
+  <div>
+    <nav>
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+      <router-link :to="dinamicRoute">Services </router-link>
+      <router-link to="/users/10"> usuario 10</router-link>
+    </nav>
+    <router-view />
+    <h1>
+      {{ $store.state.use.first_name }}
+    </h1>
+  </div>
 </template>
 
 <script>
@@ -13,7 +18,11 @@ export default {
   data() {
     return {
       dinamicRoute: { name: "services" },
+      $store,
     };
+  },
+  created() {
+    console.log(this.$store.state.user);
   },
 };
 </script>
