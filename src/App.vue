@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav>
+    <!-- <nav>
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
       <router-link :to="dinamicRoute">Services </router-link>
@@ -9,20 +9,37 @@
     <router-view />
     <h1>
       {{ $store.state.use.first_name }}
-    </h1>
+    </h1> -->
+    <appProducts />
+    <br />
+    <button @click="updateUser()">Update User</button>
   </div>
 </template>
 
 <script>
+import appProducts from "./components/products/appProducts.vue";
 export default {
   data() {
     return {
       dinamicRoute: { name: "services" },
-      $store,
+      // $store,
     };
   },
+  component: {
+    appProducts,
+  },
+  methods: {
+    updateUser() {
+      const newUser = {
+        first_name: "rafael",
+        last_name: "benck",
+        email: "rafaelbenckc@gmail.com",
+      };
+    },
+  },
   created() {
-    console.log(this.$store.state.user);
+    // console.log(this.$store.state.user);
+    // this.$store.commit("storeUser");
   },
 };
 </script>
