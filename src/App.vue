@@ -11,6 +11,7 @@
       {{ $store.state.use.first_name }}
     </h1> -->
     <appProducts />
+    {{ $store.state.user.first_name }} {{ $store.state.user.last_name }}
     <br />
     <button @click="updateUser()">Update User</button>
   </div>
@@ -35,6 +36,10 @@ export default {
         last_name: "benck",
         email: "rafaelbenckc@gmail.com",
       };
+
+      this.$store.dispatch("storeUser", newUser).then(() => {
+        console.log("teste");
+      });
     },
   },
   created() {

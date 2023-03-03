@@ -1,6 +1,8 @@
 import { createStore } from "vuex";
 
 export default createStore({
+
+  //never save the state directly as it is read-only
   state: {
     user: {
       first_name: "john",
@@ -26,12 +28,20 @@ export default createStore({
     ],
     cart: [],
   },
-  getters: {},
+  getters: {
+    total(state) {
+      //dependencie
+      //return value
+      return state.cart.reduce((total, item) => (total += item.price), 0);
+    },
+  },
+
+  //here you use the commit to trigger the mutations functions
   mutations: {
     storeUser(state, data) {
       state.user = data;
       // console.log(state);
-      console.log(data);
+      // console.log(data);
     },
 
     addProducts(state, data) {
@@ -43,6 +53,22 @@ export default createStore({
       state.cart.splice(index, 1);
     },
   },
-  actions: {},
+
+  //here you perform the promises inside the vuex
+  actions: {
+    //here you add promises and create assinc functions
+    //actions return promises
+
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve()
+      }, 3000)
+    }),
+
+
+    storeUser({ commit }, data) {
+      commit("storeUser", data);
+    },
+  },
   modules: {},
 });
