@@ -6,6 +6,8 @@
 </template>
 
 <script>
+import calculateDiscountMixin from "./calculateDiscountMixin.vue";
+
 export default {
   name: "appProduct",
   data() {
@@ -25,6 +27,12 @@ export default {
     removeProduct() {
       this.$store.commit("removeProduct", this.product.id);
     },
+  },
+
+  mixins: [calculateDiscountMixin],
+
+  created() {
+    this.calculateDiscount();
   },
 };
 </script>

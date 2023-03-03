@@ -1,7 +1,6 @@
 import { createStore } from "vuex";
 
 export default createStore({
-
   //never save the state directly as it is read-only
   state: {
     user: {
@@ -59,12 +58,11 @@ export default createStore({
     //here you add promises and create assinc functions
     //actions return promises
 
-    return new Promise(resolve => {
-      setTimeout(() => {
-        resolve()
-      }, 3000)
-    }),
-
+    // return Promise(resolve => {
+    //   setTimeout(() => {
+    //     resolve()
+    //   }, 3000)
+    // }),
 
     storeUser({ commit }, data) {
       commit("storeUser", data);
